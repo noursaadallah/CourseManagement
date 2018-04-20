@@ -9,15 +9,17 @@ Start the DB manager (in hsqldb/lib) :
 * java -cp hsqldb.jar org.hsqldb.util.DatabaseManagerSwing 
 (select type HSQL Database Engine server).
 
-Build app: * Linux : ./gradlew build
-			* Windows : gradlew build
+Build app: 
+* Linux : ./gradlew build
+* Windows : gradlew build
 
-Convert to Eclipse : * Linux : ./gradlew eclise
-					* Windows : gradlew eclipse
+Convert to Eclipse : 
+* Linux : ./gradlew eclise
+* Windows : gradlew eclipse
 
 Import to Eclipse : File ->  Import -> General -> Existing project into workspace...
 
-###Docker
+##Docker
 
 Build and Launch the docker image :
 	* docker build -t name .
