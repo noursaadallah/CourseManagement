@@ -19,10 +19,11 @@ Convert to Eclipse :
 
 Import to Eclipse : File ->  Import -> General -> Existing project into workspace...
 
+
 ##Docker
 
 Build and Launch the docker image :
-	* docker build -t name .
-	* docker images
-	* docker run -p 4000:8080 -t hello
-	* docker container ls OR docker ps
+* docker build -t name .
+* docker images
+* docker run -p 4000:8080 -t hello
+* docker container ls OR docker ps
