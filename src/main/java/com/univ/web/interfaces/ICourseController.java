@@ -6,12 +6,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.univ.model.Course;
+import com.univ.model.Professor;
 
 @Controller
 @RequestMapping("courses")
@@ -33,4 +35,15 @@ public interface ICourseController {
 	@ResponseBody
 	public List<Course> getCoursesByProfessorId(@PathVariable("id") long id);
 	
+	@RequestMapping(value="/{professorId}" , method = RequestMethod.POST , consumes="application/json")
+	@ResponseStatus(HttpStatus.OK)
+	public void createCourse(@PathVariable("professorId") long professorId , @RequestBody Course c);
+	
+	@RequestMapping(value="/{id}" ,method = RequestMethod.PUT , consumes="application/json")
+	@ResponseStatus(HttpStatus.OK)
+	public void updateCourse(@PathVariable("id") long id, @RequestBody Course c);
+	
+	@RequestMapping(value="/{id}" ,method = RequestMethod.DELETE)
+	@ResponseStatus(HttpStatus.OK)
+	public void deleteCourse(@PathVariable("id") long id);
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.univ.web.interfaces.ICourseController;
 import com.univ.dal.CourseRepository;
@@ -26,5 +27,17 @@ public class CourseController implements ICourseController {
 
 	public List<Course> getCoursesByProfessorId(@PathVariable("id") long id){
 		return cr.getCoursesByProfessorId(id);
+	}
+
+	public void createCourse(@PathVariable("professorId") long professorId, @RequestBody Course c) {
+		cr.createCourse(professorId,c);
+	}
+	
+	public void updateCourse(@PathVariable("id") long id, @RequestBody Course c) {
+		cr.updateCourse(id, c);
+	}
+	
+	public void deleteCourse(@PathVariable("id") long id) {
+		cr.deleteCourse(id);
 	}
 }
