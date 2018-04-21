@@ -40,4 +40,8 @@ public class CourseController implements ICourseController {
 	public void deleteCourse(@PathVariable("id") long id) {
 		cr.deleteCourse(id);
 	}
+	
+	public List<Course> getCoursesByLevel(@PathVariable("level") int level){
+		return cr.getCoursesByLevel(level);
+	}
 }

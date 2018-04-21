@@ -29,6 +29,14 @@ public class CourseRepository {
 		return res;
 	}
 	
+	public List<Course> getCoursesByLevel(int level) {
+		List<Course> res = _uow.em.createQuery(
+				"SELECT c FROM Course c WHERE c.level = :level")
+				.setParameter("level", level)
+				.getResultList();
+		return res;
+	}
+	
 	public Course getCourseById(long id) {
 		Course c = _uow.em.find(Course.class , id);
 		return c;
@@ -38,7 +46,17 @@ public class CourseRepository {
 		Professor p = _uow.em.find(Professor.class , professorId);
 		p.addCourse(c);
 		c.setProfessor(p);
-		_uow.em.merge(p);
+		
+		EntityTransaction tx = _uow.em.getTransaction();
+		try {
+			tx.begin();
+			_uow.em.merge(p);
+			_uow.em.persist(c);
+			tx.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			tx.rollback();
+		}
 	}
 	
 	public Course updateCourse(long id , Course update) {
@@ -48,7 +66,15 @@ public class CourseRepository {
 		origin.setDescription(update.getDescription() );
 		origin.setLevel(update.getLevel());
 		origin.setName(update.getName());
+		EntityTransaction tx = _uow.em.getTransaction();
+		try {
+		tx.begin();
 		_uow.em.merge(origin);
+		tx.commit();
+		} catch(Exception e) {
+			e.printStackTrace();
+			tx.rollback();
+		}
 		return origin;
 	}
 	
@@ -56,7 +82,15 @@ public class CourseRepository {
 		Course c = _uow.em.getReference(Course.class , id);
 		Professor p = _uow.em.find(Professor.class , c.getProfessor().getId());
 		p.removeCourse(c);
+		EntityTransaction tx = _uow.em.getTransaction();
+		try {
+		tx.begin();
 		_uow.em.remove(c);
 		_uow.em.merge(p);
+		tx.commit();
+		} catch(Exception e) {
+			e.printStackTrace();
+			tx.rollback();
+		}
 	}
 }

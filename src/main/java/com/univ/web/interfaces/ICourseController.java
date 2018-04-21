@@ -46,4 +46,9 @@ public interface ICourseController {
 	@RequestMapping(value="/{id}" ,method = RequestMethod.DELETE)
 	@ResponseStatus(HttpStatus.OK)
 	public void deleteCourse(@PathVariable("id") long id);
+	
+	@RequestMapping(value = "/bylevel/{level}", method = RequestMethod.GET)
+	@ResponseStatus(HttpStatus.OK)
+	@ResponseBody
+	public List<Course> getCoursesByLevel(@PathVariable("level") int level);
 }

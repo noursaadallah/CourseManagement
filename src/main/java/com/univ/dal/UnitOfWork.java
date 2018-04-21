@@ -7,7 +7,7 @@ import javax.persistence.Persistence;
 public class UnitOfWork {
 
 	private static UnitOfWork _uow;
-	protected EntityManagerFactory emf;
+	private EntityManagerFactory emf;
 	protected EntityManager em;
 	
 	
