@@ -1,0 +1,48 @@
+ 
+List of courses for a student (enrolled) :
+ 	"{[/courses/bystudent/{studentId}],methods=[GET]}"
+
+List of courses by level (to subscribe to course) :                       
+	"{[/courses/bylevel/{level}],methods=[GET]}"
+	
+List of courses that a professor proposes :                           
+	"{[/courses/byprofessor/{id}],methods=[GET]}"
+	
+Professor creates a course:                          
+	"{[/courses/{professorId}],methods=[POST],consumes=[application/json]}"
+ 	
+Get list of all courses:	
+ 	"{[/courses],methods=[GET]}"
+ 	
+Update a course :                                           
+ 	"{[/courses/{id}],methods=[PUT],consumes=[application/json]}"          
+ 	
+Get a course :
+ 	"{[/courses/{id}],methods=[GET]}"                                      
+
+Delete a course:
+ 	"{[/courses/{id}],methods=[DELETE]}"
+ 	
+Create a professor:                                
+ 	"{[/professors],methods=[POST],consumes=[application/json]}" 
+
+Professor Sign in :          
+ 	"{[/professors/{email}/{password}],methods=[GET]}"
+
+Get list of professors :                     
+ 	"{[/professors],methods=[GET]}"
+
+Student withdraw from a course :                                     
+ 	"{[/students/withdraw/{studentId}/{courseId}],methods=[POST]}"
+ 	
+Student sign in :      
+ 	"{[/students/{email}/{password}],methods=[GET]}"      
+ 	
+Create a student :                 
+ 	"{[/students],methods=[POST],consumes=[application/json]}"             
+ 	
+Get list of students : 	
+ 	"{[/students],methods=[GET]}"
+ 	
+Student enroll to a course :                                          
+ 	"{[/students/enroll/{studentId}/{courseId}],methods=[POST]}"

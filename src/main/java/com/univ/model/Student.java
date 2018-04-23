@@ -52,18 +52,12 @@ public class Student extends User{
 		this.inscriptions = inscriptions;
 	}
 	
-	public void enrollToCourse(Course c, String year) {
-		this.inscriptions.add( new Inscription(c,this, year) );
+	public void addInscription(Inscription i) {
+		this.inscriptions.add( i );
 	}
 	
-	public void desistFromCourse(Course c, String year) {
-		
-		for( Inscription i : this.inscriptions) {
-			if( (i.course.id == c.id || i.course.name.equals(c.name) && i.year.equals(year) ) ){
-				this.inscriptions.remove(i);
-				return;
-			}
-		}
+	public void removeInscription(Inscription i) {
+		this.inscriptions.remove(i);
 	}
 	
 	@Override

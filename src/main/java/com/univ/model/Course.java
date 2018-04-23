@@ -117,6 +117,14 @@ public class Course {
 		this.inscriptions = inscriptions;
 	}
 	
+	public void addInscription(Inscription i) {
+		this.inscriptions.add(i);
+	}
+	
+	public void removeInscription(Inscription i) {
+		this.inscriptions.remove(i);
+	}
+	
 	@Override
 	public boolean equals(Object other) {
 	    if (other == null) return false;

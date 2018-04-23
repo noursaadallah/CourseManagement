@@ -32,7 +32,6 @@ public class Main
 			p.setPassword("password");
 
 			Inscription i = new Inscription();
-			i.setYear("year");
 
 			Course c = new Course();
 			c.setAvailable(true);

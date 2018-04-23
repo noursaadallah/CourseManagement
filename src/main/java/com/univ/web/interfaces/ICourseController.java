@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.univ.model.Course;
-import com.univ.model.Professor;
 
 @Controller
 @RequestMapping("courses")
@@ -51,4 +50,9 @@ public interface ICourseController {
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody
 	public List<Course> getCoursesByLevel(@PathVariable("level") int level);
+	
+	@RequestMapping(value="/bystudent/{studentId}",method = RequestMethod.GET)
+	@ResponseStatus(HttpStatus.OK)
+	@ResponseBody
+	public List<Course> getCoursesByStudentId( @PathVariable("studentId") long studentId );
 }

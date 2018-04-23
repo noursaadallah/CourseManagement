@@ -27,5 +27,15 @@ public class StudentController implements IStudentController {
 			   			   @PathVariable("password") String password ) {
 		return sr.signIn(email, password);
 	}
+	
+	public void enrollToCourse( @PathVariable("studentId") long studentId,
+	   		   						@PathVariable("courseId") long courseId ) {
+		sr.enrollToCourse(studentId, courseId);
+	}
+	
+	public void withdrawFromCourse( @PathVariable("studentId") long studentId,
+									@PathVariable("courseId") long courseId ) {
+		sr.withdrawFromCourse(studentId, courseId);
+	}
 
 }

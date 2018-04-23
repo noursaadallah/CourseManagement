@@ -33,4 +33,14 @@ public interface IStudentController {
 	@ResponseBody
 	public Student signIn( @PathVariable("email") String email,
 						   @PathVariable("password") String password );
+	
+	@RequestMapping(value="/{studentId}/{courseId}",method = RequestMethod.POST)
+	@ResponseStatus(HttpStatus.OK)
+	public void enrollToCourse( @PathVariable("studentId") long studentId,
+						   		   @PathVariable("courseId") long courseId );
+	
+	@RequestMapping(value="/{studentId}/{courseId}",method = RequestMethod.DELETE)
+	@ResponseStatus(HttpStatus.OK)
+	public void withdrawFromCourse( @PathVariable("studentId") long studentId,
+						   		   @PathVariable("courseId") long courseId );
 }

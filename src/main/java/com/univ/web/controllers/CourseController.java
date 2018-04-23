@@ -44,4 +44,8 @@ public class CourseController implements ICourseController {
 	public List<Course> getCoursesByLevel(@PathVariable("level") int level){
 		return cr.getCoursesByLevel(level);
 	}
+	
+	public List<Course> getCoursesByStudentId( @PathVariable("studentId") long studentId ) {
+		return cr.getCoursesByStudentId(studentId);
+	}
 }

@@ -15,7 +15,6 @@ public class Inscription {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	protected long id;
-	protected String year;
 	@ManyToOne
 	protected Course course;
 	@ManyToOne
@@ -25,9 +24,8 @@ public class Inscription {
 		super();
 	}
 	
-	public Inscription(Course course, Student student, String year) {
+	public Inscription(Course course, Student student) {
 		super();
-		this.year = year;
 		this.course = course;
 		this.student = student;
 	}
@@ -37,14 +35,6 @@ public class Inscription {
 	}
 	public void setId(long id) {
 		this.id = id;
-	}
-	
-	public String getYear() {
-		return year;
-	}
-
-	public void setYear(String year) {
-		this.year = year;
 	}
 
 	public Course getCourse() {

@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.EntityTransaction;
 
 import com.univ.model.Course;
+import com.univ.model.Inscription;
 import com.univ.model.Professor;
 import com.univ.model.Student;
 
@@ -92,5 +93,13 @@ public class CourseRepository {
 			e.printStackTrace();
 			tx.rollback();
 		}
+	}
+	
+	public List<Course> getCoursesByStudentId(long studentId) {
+		Student s = _uow.em.getReference(Student.class, studentId);
+		List<Course> res = new ArrayList<Course>();
+		for(Inscription i : s.getInscriptions())
+			res.add(i.getCourse());
+		return res;
 	}
 }
