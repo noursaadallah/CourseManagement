@@ -81,7 +81,7 @@ public class CourseRepository {
 	
 	public void deleteCourse(long id) {
 		Course c = _uow.em.getReference(Course.class , id);
-		Professor p = _uow.em.find(Professor.class , c.getProfessor().getId());
+		Professor p = _uow.em.getReference(Professor.class , c.getProfessor().getId());
 		p.removeCourse(c);
 		EntityTransaction tx = _uow.em.getTransaction();
 		try {
